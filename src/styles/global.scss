@@ -1,0 +1,23 @@
+@import "./vars.scss";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font;
+  font-weight: 400;
+}
+
+ul {
+  list-style: none;
+}
+
+i {
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  all: unset;
+}

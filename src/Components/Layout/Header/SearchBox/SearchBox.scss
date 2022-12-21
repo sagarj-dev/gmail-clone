@@ -1,0 +1,23 @@
+.SearchBox {
+  display: flex;
+  // justify-content: space-around;
+  align-items: center;
+  background-color: #eaf1fb;
+  border-radius: 8px;
+  input {
+    // flex-grow: 1;
+    // margin: 0 1rem;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    appearance: none;
+    border: none;
+    background-color: #eaf1fb;
+    color: var(--clr-grey-dark);
+  }
+
+  i {
+    margin: 0 1rem;
+    font-size: 1.5rem;
+  }
+}

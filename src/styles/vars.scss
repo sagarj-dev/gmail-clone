@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+$font: "Roboto", sans-serif;
+
+:root {
+  --clr-p: #0b57d0;
+  --clr-green: #1e8e3e;
+  --clr-yellow: #f9ab01;
+  --clr-red: #ea4335;
+  --clr-blue: #1a73e8;
+  --clr-grey-dark: #64676c;
+  --clr-grey-light: #999999;
+  --clr-background-light: #f6f8fc;
+}
+// [data-theme="dark"] {
+//   --clr-p: #61c554;
+//   --background-clr: #131313;
+//   --background-clr-grey: #000;
+//   --font-clr: #fff;
+//   --font-clr-grey: #8a8a8a;
+//   --clr-mystical: #15ade0;
+//   --clr-power: #f0425c;
+//   --clr-energy: #1a6c4b;
+// }
