@@ -1,0 +1,36 @@
+.CategoryButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 50px;
+  padding: 0.3rem 1rem;
+  margin: 0.3rem 0;
+  width: 90%;
+  background-color: var(--clr-background-light);
+  cursor: pointer;
+  span {
+    font-size: 14px;
+  }
+
+  &:hover {
+    filter: brightness(95%);
+  }
+}
+
+.CategoryButton-left {
+  display: flex;
+  align-items: center;
+  i {
+    font-size: 1.4rem;
+  }
+  span {
+    margin-left: 0.5rem;
+  }
+}
+
+.CategoryButton-active {
+  background-color: #d3e3fd;
+  span {
+    font-weight: 600;
+  }
+}

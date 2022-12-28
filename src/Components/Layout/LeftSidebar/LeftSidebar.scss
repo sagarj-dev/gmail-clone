@@ -1,0 +1,38 @@
+.LeftSidebar {
+  background-color: var(--clr-background-light);
+  padding: 1rem;
+}
+
+.composeButtonContainer {
+  display: flex;
+  background-color: #c2e7ff;
+  width: fit-content;
+  font-size: 1.3rem;
+  padding: 1rem 2rem 1rem 1rem;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+  span {
+    font-size: 14px;
+    margin-left: 1rem;
+  }
+
+  &:hover {
+    background-color: #b7e0fb;
+  }
+}
+
+.mailCategoryContainer {
+  padding: 1rem 0;
+}
+
+.labelsContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  font-size: 15px;
+  cursor: pointer;
+  i {
+    font-size: 1rem;
+  }
+}
