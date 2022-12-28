@@ -1,0 +1,20 @@
+.emailComp {
+  display: grid;
+  grid-template-columns: 2fr 4fr 12fr 1fr;
+  width: 100%;
+  align-items: center;
+  margin: -0.5rem;
+  > div {
+    display: flex;
+    align-items: center;
+  }
+  h5 {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  span {
+    margin-left: 1rem;
+    color: var(--clr-grey-light);
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,20 @@
+.MainTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 6vh;
+  > div {
+    display: flex;
+    gap: 1rem;
+  }
+
+  i {
+    font-size: 1.3rem;
+  }
+
+  span {
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--clr-grey-light);
+  }
+}
