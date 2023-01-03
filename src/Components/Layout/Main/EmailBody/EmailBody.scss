@@ -1,0 +1,24 @@
+.EmailBody {
+  padding: 1rem;
+}
+
+.snippet {
+  font-size: 1.5rem;
+}
+
+.senderDetails {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+
+  h5 {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 14px;
+    margin-left: 0.5rem;
+    color: var(--clr-grey-light);
+  }
+}

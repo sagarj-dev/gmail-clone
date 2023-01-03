@@ -5,71 +5,46 @@ import Checkbox from "@mui/material/Checkbox";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import StarIcon from "@mui/icons-material/Star";
 import "./EmailList.scss";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../../../Redux/hooks/redux-hooks";
+import { setSelectedMail } from "../../../../Redux/store/data-slice/data-actions";
 
 const EmailList = () => {
+  const dispatch = useAppDispatch();
+  const mails = useAppSelector((state) => state.data.mails);
   return (
     <div>
       <List>
-        <ListItem>
-          <div className="emailComp">
-            <div className="emailActions">
-              <Checkbox />
-              <Checkbox
-                icon={<StarBorderIcon />}
-                checkedIcon={<StarIcon color="warning" />}
-              />
+        {mails.length > 0 &&
+          mails.map((mail) => (
+            <div
+              key={mail.id}
+              onClick={() => {
+                dispatch(setSelectedMail(mail.id));
+              }}
+            >
+              <ListItem>
+                <div className="emailComp">
+                  <div className="emailActions">
+                    <Checkbox />
+                    <Checkbox
+                      icon={<StarBorderIcon />}
+                      checkedIcon={<StarIcon color="warning" />}
+                    />
+                  </div>
+                  <h5>{mail.id}</h5>
+                  <div className="emailprev">
+                    <h5></h5>
+                    <span></span>
+                  </div>
+                  <h5 className="emailDate"></h5>
+                </div>
+              </ListItem>
+              <Divider />
             </div>
-            <h5>Nancy Farid - Wazzaf</h5>
-            <div className="emailprev">
-              <h5>Ahmed,Join our Virtual Launch tomorrow</h5>
-              <span>
-                Graphic design internship - designer and other roles...
-              </span>
-            </div>
-            <h5 className="emailDate">23 Dec</h5>
-          </div>
-        </ListItem>
-        <Divider />
-        <ListItem>
-          <div className="emailComp">
-            <div className="emailActions">
-              <Checkbox />
-              <Checkbox
-                icon={<StarBorderIcon />}
-                checkedIcon={<StarIcon color="warning" />}
-              />
-            </div>
-            <h5>Nancy Farid - Wazzaf</h5>
-            <div className="emailprev">
-              <h5>Ahmed,Join our Virtual Launch tomorrow</h5>
-              <span>
-                Graphic design internship - designer and other roles...
-              </span>
-            </div>
-            <h5 className="emailDate">23 Dec</h5>
-          </div>
-        </ListItem>
-        <Divider />
-        <ListItem>
-          <div className="emailComp">
-            <div className="emailActions">
-              <Checkbox />
-              <Checkbox
-                icon={<StarBorderIcon />}
-                checkedIcon={<StarIcon color="warning" />}
-              />
-            </div>
-            <h5>Nancy Farid - Wazzaf</h5>
-            <div className="emailprev">
-              <h5>Ahmed,Join our Virtual Launch tomorrow</h5>
-              <span>
-                Graphic design internship - designer and other roles...
-              </span>
-            </div>
-            <h5 className="emailDate">23 Dec</h5>
-          </div>
-        </ListItem>
-        <Divider />
+          ))}
       </List>
     </div>
   );

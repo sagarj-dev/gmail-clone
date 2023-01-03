@@ -5,11 +5,33 @@ import { InboxOutlined } from "@mui/icons-material";
 import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
 import GroupOutlinedIcon from "@mui/icons-material/GroupOutlined";
 import "./MainTabs.scss";
+import { useAppDispatch } from "../../../../Redux/hooks/redux-hooks";
+import {
+  clearSelectedMail,
+  setMails,
+} from "../../../../Redux/store/data-slice/data-actions";
 export default function MainTabs() {
   const [value, setValue] = React.useState(0);
-
+  const dispatch = useAppDispatch();
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
+    switch (newValue) {
+      case 0:
+        dispatch(setMails("Inbox"));
+        dispatch(clearSelectedMail());
+        break;
+      case 1:
+        dispatch(setMails("category_promotions"));
+        dispatch(clearSelectedMail());
+        break;
+      case 2:
+        dispatch(setMails("category_social"));
+        dispatch(clearSelectedMail());
+        break;
+
+      default:
+        break;
+    }
   };
 
   return (
