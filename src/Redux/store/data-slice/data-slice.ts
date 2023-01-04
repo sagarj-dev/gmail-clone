@@ -7,21 +7,26 @@ import {
 
 let initialState: DataModel = {
   email: "jasani.sagar@gmail.com",
+  page: 1,
   currentCategory: "",
   mails: [],
   selectedMail: {
     snippet: "",
     payload: {
+      body: {
+        data: "",
+        size: 0,
+      },
       headers: [
         {
           name: "",
           value: "",
         },
       ],
-
       parts: [
         {
           partId: "",
+          mimeType: "",
           body: {
             size: 0,
             data: "",
@@ -42,6 +47,7 @@ const DataSlice = createSlice({
       state.currentCategory = action.payload;
     },
     setMails(state, action: PayloadAction<AllMailType[]>) {
+      state.page = 1;
       state.mails = action.payload;
     },
     setSelectedMail(state, action: PayloadAction<SelectedMailType>) {
@@ -49,6 +55,9 @@ const DataSlice = createSlice({
     },
     clearSelectedMail(state) {
       state.selectedMail = initialState.selectedMail;
+    },
+    setPage(state, action: PayloadAction<number>) {
+      state.page = action.payload;
     },
   },
 });

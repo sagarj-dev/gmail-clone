@@ -6,6 +6,10 @@ export interface AllMailType {
 export interface SelectedMailType {
   snippet: string;
   payload: {
+    body: {
+      data: string;
+      size: number;
+    };
     headers: [
       {
         name: string;
@@ -16,6 +20,7 @@ export interface SelectedMailType {
     parts: [
       {
         partId: string;
+        mimeType: string;
         body: {
           size: number;
           data: string;
@@ -26,6 +31,7 @@ export interface SelectedMailType {
 }
 
 export interface DataModel {
+  page: number;
   email: string;
   currentCategory: string;
   mails: AllMailType[];

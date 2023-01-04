@@ -1,0 +1,92 @@
+.ComposeDialog {
+  width: 600px;
+  height: 550px;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  right: 5%;
+  z-index: 1;
+  border-radius: 5px;
+
+  box-shadow: 0px 8px 10px 1px rgb(0 0 0 / 14%),
+    0px 3px 14px 2px rgb(0 0 0 / 12%), 0px 5px 5px -3px rgb(0 0 0 / 20%);
+  color: var(--clr-grey-light);
+
+  input,
+  textarea {
+    display: flex;
+    align-items: center;
+    outline: none;
+    height: 7%;
+    border: none;
+    width: 100%;
+    margin-left: 0.5rem;
+    height: 100%;
+    color: var(--clr-grey-light);
+    border-bottom: 1px solid rgb(212, 212, 212);
+  }
+
+  textarea {
+    margin: 0;
+    border: none;
+  }
+}
+
+.ComposeDialog-top {
+  padding: 0 1rem;
+  border-top: 5px;
+  height: 5%;
+  display: flex;
+  align-items: center;
+  //   padding: ;
+  background-color: #eaf1fb;
+  justify-content: space-between;
+  color: black;
+  p {
+    font-size: 14px;
+  }
+  div {
+    display: flex;
+
+    i {
+      margin: 0 0.3rem;
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.ComposeDialog-large {
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+}
+
+.composeDialog-input {
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  height: 5%;
+  margin: 0.5rem 0;
+}
+
+.composeDialog-body {
+  height: 70%;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+.composeDialog-actions {
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  height: 7%;
+
+  button {
+    background-color: var(--clr-p);
+    border: none;
+    color: white;
+    padding: 0.6rem 2rem;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+}

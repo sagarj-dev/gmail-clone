@@ -29,7 +29,6 @@ export const setMails = (
   return async (dispatch, getState) => {
     setCategory(cat);
     let allmails = await DataService.loadMails(getState().data.email, cat);
-    console.log("allmails", allmails);
 
     dispatch(DataActions.setMails(allmails));
   };
@@ -43,7 +42,23 @@ export const setSelectedMail = (
       getState().data.email,
       id
     );
+
     dispatch(DataActions.setSelectedMail(selectmail));
+  };
+};
+
+export const setPage = (
+  count: number
+): ThunkAction<void, RootState, unknown, AnyAction> => {
+  return async (dispatch, getState) => {
+    const currentPage = getState().data.page;
+    let newPageNumber = currentPage + count;
+
+    if (!newPageNumber) {
+      dispatch(DataActions.setPage(1));
+    } else {
+      dispatch(DataActions.setPage(newPageNumber));
+    }
   };
 };
 

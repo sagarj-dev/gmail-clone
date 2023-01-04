@@ -3,7 +3,11 @@
 }
 
 .snippet {
+  display: flex;
   font-size: 1.5rem;
+  h5 {
+    margin-left: 1rem;
+  }
 }
 
 .senderDetails {
@@ -21,4 +25,10 @@
     margin-left: 0.5rem;
     color: var(--clr-grey-light);
   }
+}
+
+.mainBodyHTML {
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 3rem;
 }

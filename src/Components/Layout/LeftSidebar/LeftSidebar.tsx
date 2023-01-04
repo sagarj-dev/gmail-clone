@@ -14,6 +14,7 @@ import {
   clearSelectedMail,
   setMails,
 } from "../../../Redux/store/data-slice/data-actions";
+import ComposeDialog from "./ComposeDialog/ComposeDialog";
 
 const data = [
   { icon: HiOutlineInbox, title: "Inbox", unread: 0, isActive: true },
@@ -29,6 +30,7 @@ const data = [
 ];
 const LeftSidebar = () => {
   const [active, setActive] = useState("Inbox");
+  const [modal, setModal] = useState<boolean>(true);
   const dispatch = useAppDispatch();
 
   const changeCategory = (title: string) => {
@@ -38,12 +40,13 @@ const LeftSidebar = () => {
   };
   return (
     <div className="LeftSidebar">
-      <div className="composeButtonContainer">
+      <div className="composeButtonContainer" onClick={() => setModal(!modal)}>
         <i>
           <HiOutlinePencil />
         </i>
         <span>Compose</span>
       </div>
+      <ComposeDialog open={modal} setModal={setModal} />
 
       <div className="mailCategoryContainer">
         {data.map((d) => (
@@ -51,9 +54,9 @@ const LeftSidebar = () => {
             onClick={() => {
               changeCategory(d.title);
             }}
+            key={d.title}
           >
             <CategoryButton
-              key={d.title}
               icon={d.icon}
               title={d.title}
               unread={d.unread}

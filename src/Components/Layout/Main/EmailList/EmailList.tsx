@@ -10,21 +10,31 @@ import {
   useAppSelector,
 } from "../../../../Redux/hooks/redux-hooks";
 import { setSelectedMail } from "../../../../Redux/store/data-slice/data-actions";
+import { AllMailType } from "../../../../Redux/models/redux-models";
 
 const EmailList = () => {
   const dispatch = useAppDispatch();
   const mails = useAppSelector((state) => state.data.mails);
+  const pageNumber = useAppSelector((state) => state.data.page);
+  const startIndex = (pageNumber - 1) * 50 + 1;
+  let endIndex = pageNumber * 50;
+  if (endIndex > mails.length) {
+    endIndex = mails.length;
+  }
+  let pagination: AllMailType[] = [];
+  if (mails.length > 0) {
+    pagination = mails.filter((m, i) => {
+      if (i >= startIndex && i <= endIndex) {
+        return m;
+      }
+    });
+  }
   return (
     <div>
       <List>
-        {mails.length > 0 &&
-          mails.map((mail) => (
-            <div
-              key={mail.id}
-              onClick={() => {
-                dispatch(setSelectedMail(mail.id));
-              }}
-            >
+        {pagination.length > 0 ? (
+          pagination.map((mail) => (
+            <div key={mail.id}>
               <ListItem>
                 <div className="emailComp">
                   <div className="emailActions">
@@ -34,7 +44,13 @@ const EmailList = () => {
                       checkedIcon={<StarIcon color="warning" />}
                     />
                   </div>
-                  <h5>{mail.id}</h5>
+                  <h5
+                    onClick={() => {
+                      dispatch(setSelectedMail(mail.id));
+                    }}
+                  >
+                    {mail.id}
+                  </h5>
                   <div className="emailprev">
                     <h5></h5>
                     <span></span>
@@ -44,7 +60,10 @@ const EmailList = () => {
               </ListItem>
               <Divider />
             </div>
-          ))}
+          ))
+        ) : (
+          <h2>NO EMAILS FOUND</h2>
+        )}
       </List>
     </div>
   );
